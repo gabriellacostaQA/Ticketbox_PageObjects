@@ -1,0 +1,29 @@
+# Node modules
+node_modules/
+
+# Cypress folders
+cypress/screenshots/
+cypress/videos/
+
+# Test reports
+cypress/results/
+
+# Coverage directory
+coverage/
+
+# Logs
+*.log
+
+# Environment configuration
+.env
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# IDE settings
+.vscode/
+.idea/
+
+# npm package lock file (optional, depending on your project requirements)
+package-lock.json

@@ -1,0 +1,6 @@
+{
+  "url": "https://ticket-box.s3.eu-central-1.amazonaws.com/index.html",
+  "name": "Using fixtures to represent data",
+  "email": "hello@cypress.io",
+  "body": "Fixtures are a great way to mock data for responses to routes"
+}
