@@ -11,7 +11,10 @@ on:
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2] #duas maquinas em paralelo executando os testes (mais rápido)
     steps:
       # 1. Faz checkout do código
       - name: Check out repository
@@ -33,6 +36,8 @@ jobs:
         with:
           browser: chrome  # Opcional: especifica o navegador
           record: true
+          parallel: true
+          group: 'Cypress Tests'
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
