@@ -24,6 +24,3 @@ Thumbs.db
 # IDE settings
 .vscode/
 .idea/
-
-# npm package lock file (optional, depending on your project requirements)
-package-lock.json
