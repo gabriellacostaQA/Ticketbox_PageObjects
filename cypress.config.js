@@ -20,7 +20,7 @@ module.exports = defineConfig({
       // Implementação de outros node event listeners, se necessário
       return config;
     },
-    baseUrl: "https://sua-api-base-url.com", // Substitua pela URL base da sua API, se aplicável
+    
     specPattern: "cypress/e2e/**/*.cy.{js,jsx,ts,tsx}", // Padrão dos arquivos de testes
   },
   reporter: "mochawesome", // Define o Mochawesome como o reporter
