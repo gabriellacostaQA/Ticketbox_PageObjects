@@ -6,6 +6,10 @@ class Login {
         cy.visit(elements.URL);
     }
 
+    visitarPaginaAPI(){
+        cy.visit(elements.URL_API);
+    }
+
     //---------------Dados pessoais---------------//        
     preencherDadosPessoaisOne(){
         cy.get(elements.firstName).type('Test');
@@ -94,4 +98,4 @@ class Login {
     }
 }
 
-export default new Login()
+export default new Login();

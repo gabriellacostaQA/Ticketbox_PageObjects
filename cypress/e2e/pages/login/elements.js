@@ -12,6 +12,7 @@ export const elements ={
     findOutPublication:'#publication',
     request: '#requests',
     contract: '#agree',
-    signature:'#signature'
+    signature:'#signature',
+    URL_API: 'https://petstore.swagger.io/'
 
 }
