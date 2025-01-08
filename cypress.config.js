@@ -2,24 +2,33 @@ const { defineConfig } = require("cypress");
 const mochawesome = require("mochawesome");
 
 module.exports = defineConfig({
+  projectId: "q6wu8b", // ID do Cypress Cloud
   e2e: {
     setupNodeEvents(on, config) {
-      // Relatório Mochawesome
-      on('after:run', (results) => {
-        mochawesome.create(results);
+      // Configuração do Mochawesome para geração de relatórios
+      on("after:run", (results) => {
+        const fs = require("fs");
+        const mochawesomeOptions = {
+          reportDir: "cypress/reports", // Diretório onde os relatórios serão gerados
+          overwrite: false,
+          html: true,
+          json: true,
+        };
+        mochawesome.generate(results, mochawesomeOptions);
       });
 
-      // Configuração do Cypress Cloud (projectId)
-      config.projectId = "q6wu8b";
-
+      // Implementação de outros node event listeners, se necessário
       return config;
     },
-    reporter: "mochawesome", // Usa o Mochawesome como reporter
-    reporterOptions: {
-      reportDir: "cypress/reports", // Diretorio onde o relatório será salvo
-      overwrite: true,
-      html: true,
-      json: true
-    },
+    baseUrl: "https://sua-api-base-url.com", // Substitua pela URL base da sua API, se aplicável
+    specPattern: "cypress/e2e/**/*.cy.{js,jsx,ts,tsx}", // Padrão dos arquivos de testes
+  },
+  reporter: "mochawesome", // Define o Mochawesome como o reporter
+  reporterOptions: {
+    reportDir: "cypress/reports", // Diretório onde os relatórios serão armazenados
+    overwrite: false,
+    html: true,
+    json: true,
   },
 });
+
