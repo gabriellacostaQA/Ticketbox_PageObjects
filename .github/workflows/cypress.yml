@@ -1,4 +1,4 @@
-name: CI - Cypress API Tests
+name: CI - Cypress PO/CI Tests
 
 on:
   push:
@@ -34,5 +34,13 @@ jobs:
           browser: chrome  # Opcional: especifica o navegador
           record: true
         env:
-            CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # 5. Publica os relatórios do Mochawesome como artefatos
+      - name: Publish Mochawesome reports
+        if: always() # Garante que este passo será executado mesmo que o anterior falhe
+        uses: actions/upload-artifact@v3
+        with:
+          name: mochawesome-reports
+          path: cypress/reports
